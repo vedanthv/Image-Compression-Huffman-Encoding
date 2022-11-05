@@ -155,7 +155,7 @@ struct MinHeapNode* buildHuffmanTree(int data[],int freq[],int size){
         // left and right children of this new node. Add this node to the min heap
         // '$' is a special value for internal nodes, not used
 
-        top = newNode('$', left->freq + right->freq) l
+        top = newNode('$', left->freq + right->freq);
         top->left = left;
         top->right = right;
 
@@ -164,5 +164,30 @@ struct MinHeapNode* buildHuffmanTree(int data[],int freq[],int size){
 
     return extractMin(minHeap);
 
-    
 }
+
+void printCodes(struct MinHeapNode* root, int arr[], int top)
+{
+    // Assign 0 to left edge and recur
+    if (root->left)
+    {
+        arr[top] = 0;
+        printCodes(root->left, arr, top + 1);
+    }
+ 
+    // Assign 1 to right edge and recur
+    if (root->right)
+    {
+        arr[top] = 1;
+        printCodes(root->right, arr, top + 1);
+    }
+ 
+    // If this is a leaf node, then it contains one of the input
+    // characters, print the character and its code from arr[]
+    if (isLeaf(root))
+    {
+        printf("%d: ", root->data);
+        printArr(arr, top);
+    }
+}
+
