@@ -11,3 +11,12 @@ struct MinHeapNode{
     unsigned freq;
     struct MinHeapNode *left, *right;
 };
+
+// MinHeap -> Collection of Huffman Tree nodes
+
+struct MinHeap{
+    unsigned size;
+    unsigned capacity;
+    struct MinHeapNode **array;
+};
+
