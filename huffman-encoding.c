@@ -48,5 +48,17 @@ void swapMinHeapNode(struct MinHeapNode** a, struct MinHeapNode** b)
     *b = t;
 }
 
+// The standard minHeapify function.
+void minHeapify(struct MinHeap* minHeap, int idx)
+{
+    int smallest = idx;
+    int left = 2 * idx + 1;
+    int right = 2 * idx + 2;
+ 
+    if (left < minHeap->size &&
+        minHeap->array[left]->freq < minHeap->array[smallest]->freq)
+      smallest = left;
+
+
 
 
