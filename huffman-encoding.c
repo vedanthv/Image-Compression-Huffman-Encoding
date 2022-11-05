@@ -107,3 +107,14 @@ void buildMinHeap(struct MinHeap* minHeap){
     }
 }
 
+// fn to print arr of size n
+void printArr(int arr[], int n)
+{
+    int i;
+    for (i = 0; i < n; ++i)
+        printf("%d", arr[i]);
+    printf("\n");
+}
+
+
+
