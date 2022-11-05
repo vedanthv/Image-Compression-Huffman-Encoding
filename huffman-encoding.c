@@ -28,4 +28,18 @@ struct MinHeapNode* newNode(int data, unsigned freq)
     return temp;
 }
 
+// Utility Function to Create MinHeap of a Capacity 
+struct MinHeap* createMinHeap(unsigned capacity)
+{
+    struct MinHeap* minHeap =
+         (struct MinHeap*) malloc(sizeof(struct MinHeap));
+    minHeap->size = 0;  // current size is 0
+    minHeap->capacity = capacity;
+    minHeap->array =
+     (struct MinHeapNode**)malloc(minHeap->capacity * sizeof(struct MinHeapNode*));
+    return minHeap;
+}
+
+
+
 
