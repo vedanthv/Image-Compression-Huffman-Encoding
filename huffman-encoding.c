@@ -40,6 +40,13 @@ struct MinHeap* createMinHeap(unsigned capacity)
     return minHeap;
 }
 
+// Swapping two minHeap Nodes 
+void swapMinHeapNode(struct MinHeapNode** a, struct MinHeapNode** b)
+{
+    struct MinHeapNode* t = *a;
+    *a = *b;
+    *b = t;
+}
 
 
 
