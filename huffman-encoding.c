@@ -62,7 +62,16 @@ void minHeapify(struct MinHeap* minHeap, int idx)
     if (right < minHeap->size &&
         minHeap->array[right]->freq < minHeap->array[smallest]->freq)
       smallest = right;
+    if (smallest != idx)
+    {
+        swapMinHeapNode(&minHeap->array[smallest], &minHeap->array[idx]);
+        minHeapify(minHeap, smallest);
+    }
+}
 
-    
-
-
+// A utility function to check if size of heap is 1 or not
+int isSizeOne(struct MinHeap* minHeap)
+{
+    return (minHeap->size == 1);
+}
+ 
