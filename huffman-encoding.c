@@ -135,3 +135,34 @@ struct MinHeap* createAndBuildMinHeap(int data[], int freq[], int size)
     return minHeap;
 }
 
+// function to build Huffmann tree -> full workflow
+
+struct MinHeapNode* buildHuffmanTree(int data[],int freq[],int size){
+    struct MinHeapNode *left, *right, *top;
+
+    //1. create minHeap = size
+    struct MinHeap* minHeap = createAndBuildMinHeap(data, freq, size);
+
+    // until the size of heap aint 1 keep going through this while loop
+    while(!isSizeOne(minHeap))
+    {
+        //2. extract the min elements
+        left = extractMin(minHeap);
+        right = extractMin(minHeap);
+
+        // Step 3:  Create a new internal node with frequency equal to the
+        // sum of the two nodes frequencies. Make the two extracted node as
+        // left and right children of this new node. Add this node to the min heap
+        // '$' is a special value for internal nodes, not used
+
+        top = newNode('$', left->freq + right->freq) l
+        top->left = left;
+        top->right = right;
+
+        insertMinHeap(minHeap, top);
+    }
+
+    return extractMin(minHeap);
+
+    
+}
