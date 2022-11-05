@@ -116,5 +116,10 @@ void printArr(int arr[], int n)
     printf("\n");
 }
 
+// Utility function to check if this node is leaf
+int isLeaf(struct MinHeapNode* root)
+{
+    return !(root->left) && !(root->right) ;
+}
 
 
