@@ -122,4 +122,16 @@ int isLeaf(struct MinHeapNode* root)
     return !(root->left) && !(root->right) ;
 }
 
+// Creates a min heap of capacity equal to size and inserts all character of 
+// data[] in min heap
+
+struct MinHeap* createAndBuildMinHeap(int data[], int freq[], int size)
+{
+    struct MinHeap* minHeap = createMinHeap(size);
+    for (int i = 0; i < size; ++i)
+        minHeap->array[i] = newNode(data[i], freq[i]);
+    minHeap->size = size;
+    buildMinHeap(minHeap);
+    return minHeap;
+}
 
