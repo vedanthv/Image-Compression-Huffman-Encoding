@@ -85,4 +85,17 @@ struct MinHeapNode* extractMin(struct MinHeap* minHeap)
     return temp;
 }
 
+// A utility function to insert a new node to Min Heap
+void insertMinHeap(struct MinHeap* minHeap, struct MinHeapNode* minHeapNode)
+{
+    ++minHeap->size;
+    int i = minHeap->size - 1;
+    while (i && minHeapNode->freq < minHeap->array[(i - 1)/2]->freq)
+    {
+        minHeap->array[i] = minHeap->array[(i - 1)/2];
+        i = (i - 1)/2;
+    }
+    minHeap->array[i] = minHeapNode;
+}
+ 
 
