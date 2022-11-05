@@ -98,4 +98,12 @@ void insertMinHeap(struct MinHeap* minHeap, struct MinHeapNode* minHeapNode)
     minHeap->array[i] = minHeapNode;
 }
  
+// standard function to build minHeap
+void buildMinHeap(struct MinHeap* minHeap){
+    int n = minHeap->size - 1;
+    int i;
+    for (i = (n - 1) / 2; i >= 0;--i){
+        minHeapify(minHeap, i);
+    }
+}
 
