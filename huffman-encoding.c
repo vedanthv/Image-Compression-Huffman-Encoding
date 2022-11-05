@@ -59,6 +59,10 @@ void minHeapify(struct MinHeap* minHeap, int idx)
         minHeap->array[left]->freq < minHeap->array[smallest]->freq)
       smallest = left;
 
+    if (right < minHeap->size &&
+        minHeap->array[right]->freq < minHeap->array[smallest]->freq)
+      smallest = right;
 
+    
 
 
