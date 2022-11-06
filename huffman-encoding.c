@@ -1,7 +1,7 @@
 // C Program for Huffman Encoding
 #include<stdio.h>
 #include<stdlib.h>
-#define MAX_TREE_H 100
+#define MAX_TREE_HT 100
 
 // Huffman Tree Node Structure
 struct MinHeapNode{
@@ -229,4 +229,3 @@ void HuffmanCodes(int data[], int freq[], int size)
    int arr[MAX_TREE_HT], top = 0;
    printCodes(root, arr, top);
 }
- 
