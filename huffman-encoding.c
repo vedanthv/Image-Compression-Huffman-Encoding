@@ -191,3 +191,29 @@ void printCodes(struct MinHeapNode* root, int arr[], int top)
     }
 }
 
+// Prints huffman codes from the root of Huffman Tree.  It uses arr[] to
+// store codes
+void printCodes(struct MinHeapNode* root, int arr[], int top)
+{
+    // Assign 0 to left edge and recur
+    if (root->left)
+    {
+        arr[top] = 0;
+        printCodes(root->left, arr, top + 1);
+    }
+ 
+    // Assign 1 to right edge and recur
+    if (root->right)
+    {
+        arr[top] = 1;
+        printCodes(root->right, arr, top + 1);
+    }
+ 
+    // If this is a leaf node, then it contains one of the input
+    // characters, print the character and its code from arr[]
+    if (isLeaf(root))
+    {
+        printf("%d: ", root->data);
+        printArr(arr, top);
+    }
+}
