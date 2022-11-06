@@ -12,3 +12,12 @@ def home():
 	return render_template('home.html',u="Upload Image",c="COMPRESS!",ul='/compressed')
 
 
+@app.route('/uploaded', methods = ['GET', 'POST'])
+def upload_file():
+	if request.method=='POST':
+		f = request.files['fileToUpload']
+		imgname=f.filename
+		f.save(imgname)
+		imgtotxt.imgtotxt(imgname)
+		return render_template('home.html',u="Image Uploaded!",l="Upload Text")
+
