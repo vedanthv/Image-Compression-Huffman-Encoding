@@ -21,3 +21,25 @@ def upload_file():
 		imgtotxt.imgtotxt(imgname)
 		return render_template('home.html',u="Image Uploaded!",l="Upload Text")
 
+@app.route('/compressed',methods=['GET','POST'])
+def compress():
+	
+	if request.method=='POST':
+		os.system('gcc huffman.c')
+		v=os.popen('./a.out')
+		v=v.read().split('\n')
+		v=v[:len(v)-1]
+		keys,data=[int(i.split(': ')[0]) for i in v],[i.split(': ')[1] for i in v]
+		global s
+		s=dict(zip(keys,data))
+		dtbw=[]
+		with open('test1.txt') as f:
+			for i in f:
+				try:
+					dtbw.append(s[int(i)])
+				except:
+					dtbw.append(i)
+		dtbw=[str(i)+'\n' for i in dtbw]
+		open('compressed.txt','w').writelines(dtbw)
+		return decompress()
+
