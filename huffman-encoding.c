@@ -242,3 +242,17 @@ int main()
         i++;
         r=fscanf(fp,"%d,%d\n",&arr1[i],&freq1[i]);
     }
+    int k;
+    /*for(k=0;k<i;k++)
+    	printf("%d,%d\n",arr1[k],freq1[k]);*/
+    int arr[i],freq[i];
+    for(k=0;k<i;k++)
+    	arr[k]=arr1[k];
+   	for(k=0;k<i;k++)
+   		freq[k]=freq1[k];
+    /*int arr[] = {1,2,3,4,5,6};
+    int freq[] = {5, 9, 12, 13, 16, 45};*/
+    int size = sizeof(arr)/sizeof(arr[0]);
+    HuffmanCodes(arr, freq, size);
+    return 0;
+}
