@@ -217,3 +217,16 @@ void printCodes(struct MinHeapNode* root, int arr[], int top)
         printArr(arr, top);
     }
 }
+
+// The main function that builds a Huffman Tree and print codes by traversing
+// the built Huffman Tree
+void HuffmanCodes(int data[], int freq[], int size)
+{
+   //  Construct Huffman Tree
+   struct MinHeapNode* root = buildHuffmanTree(data, freq, size);
+ 
+   // Print Huffman codes using the Huffman tree built above
+   int arr[MAX_TREE_HT], top = 0;
+   printCodes(root, arr, top);
+}
+ 
