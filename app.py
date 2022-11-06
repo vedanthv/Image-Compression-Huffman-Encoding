@@ -43,3 +43,7 @@ def compress():
 		open('compressed.txt','w').writelines(dtbw)
 		return decompress()
 
+@app.route('/about',methods=['GET','POST'])
+def about():
+	return render_template('about.html')
+
