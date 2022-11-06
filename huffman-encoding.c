@@ -229,3 +229,16 @@ void HuffmanCodes(int data[], int freq[], int size)
    int arr[MAX_TREE_HT], top = 0;
    printCodes(root, arr, top);
 }
+
+// Driver program to test above functions
+int main()
+{
+    int r,i=0;
+    int arr1[1000],freq1[1000];
+    FILE *fp;
+    fp=fopen("test2.txt","r");
+    r=fscanf(fp,"%d,%d\n",&arr1[i],&freq1[i]);
+    while(r!=EOF){
+        i++;
+        r=fscanf(fp,"%d,%d\n",&arr1[i],&freq1[i]);
+    }
